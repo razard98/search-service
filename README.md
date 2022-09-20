@@ -16,15 +16,20 @@
 #### Spring boot 2.6.11
 
 - spring-boot-starter-data-jpa
-- spring-boot-starter-data-redis : 키워드 별로 검색된 횟수의 정확도(동시성 문제 해결)
-- spring-boot-starter-circuitbreaker-resilience4j : 카카오 검색 API 장애 시 네이버 검색 API로 전환(서킷블레이커 적용)
-- org.springframework.restdocs : Api 명세서 자동화
+- spring-boot-starter-data-redis
+  - 키워드 별로 검색된 횟수의 정확도(동시성 문제 해결)
+- spring-boot-starter-circuitbreaker-resilience4j
+   - 카카오 검색 API 장애 시 네이버 검색 API로 전환(서킷블레이커 적용)
+- org.springframework.restdocs
+  - Api 명세서 자동화
 
 #### 3rd Patty
 
 - lombok
-- retrofit 2.4.0 : http client
-- embedded-redis 0.7.2 : 내장 redis로 검증
+- retrofit 2.4.0
+  - http client
+- embedded-redis 0.7.2
+  - 내장 redis로 검증
 - h2
 
 #### Build
@@ -221,7 +226,7 @@ Content-Length: 851
   },
   "totalPages":1,
   "last":true,
-  "totalElements":10,
+  "totalElements":1,
   "size":10,
   "number":0,
   "sort":{
