@@ -1,4 +1,9 @@
-# Getting Started
+# 블로그 검색 서비스
+
+### 주요 기능
+ - 블로그 검색
+ - 인기 검색어 목록
+ - 블로그 검색 로그
 
 ### 기술 스택
 
@@ -38,6 +43,13 @@
 
 <hr>
 
+### 실행
+```
+java -jar search-app-api-1.0.jar
+```
+
+<hr>
+
 ### API 명세서
 
 * spring-rest-doc
@@ -57,7 +69,7 @@
 
 ### 에러 응답 예
 
-```json
+```
 {
   timestamp: "2022-09-18 20:17:35",
   status: 400,
@@ -88,7 +100,7 @@ Host: localhost:8080
 
 #### Http response
 
-```http response
+```
 HTTP/1.1 200 OK
 Content-Type: application/json
 Content-Length: 851
@@ -132,8 +144,8 @@ Content-Length: 851
 
 #### Http status
 
-|Http Status|Description|
 |:---|:---|
+|Http Status|Description|
 |200 OK|요청을 성공적으로 처리함|
 |400 Bad Request|잘못된 요청을 보낸 경우. 응답 본문에 오류에 대한 정보가 담겨있다.|
 
