@@ -30,16 +30,14 @@
 
 <hr>
 
-### 개발 명세서  
-* 링크 ()
+### API 명세서  
+* spring-rest-doc
+ - search-service\search-app-api\src\main\resources\static\docs\blog-search.html
 
 <hr>
 
 ### 장애 대응
-
 Circuit Breaker(서킷브레이커) Resilience4J 
-
-https://javachoi.tistory.com/402
 
 #### 서킷브레이커 상태
 http://localhost:8080/actuator/health
