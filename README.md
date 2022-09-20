@@ -144,8 +144,8 @@ Content-Length: 851
 
 #### Http status
 
-|:---|:---|
 |Http Status|Description|
+|:---|:---|
 |200 OK|요청을 성공적으로 처리함|
 |400 Bad Request|잘못된 요청을 보낸 경우. 응답 본문에 오류에 대한 정보가 담겨있다.|
 
@@ -161,7 +161,7 @@ Accept: application/json
 Host: localhost:8080
 ```
 #### Http response
-```http response
+```
 HTTP/1.1 200 OK
 Content-Type: application/json
 Content-Length: 89
@@ -197,7 +197,7 @@ Host: localhost:8080
 
 #### Http response
 
-```http response
+```
 HTTP/1.1 200 OK
 Content-Type: application/json
 Content-Length: 851
