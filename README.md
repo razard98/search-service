@@ -32,7 +32,7 @@
 
 ### API 명세서  
 * spring-rest-doc
- - search-service\search-app-api\src\main\resources\static\docs\blog-search.html
+  - search-app-api\src\main\resources\static\docs\blog-search.html
 
 <hr>
 
