@@ -27,7 +27,7 @@
     </appender>
 
     <springProfile name="local">
-        <logger name="com.razard" level="DEBUG">
+        <logger name="com.razard" level="INFO">
             <appender-ref ref="FILE"/>
             <appender-ref ref="STDOUT"/>
         </logger>

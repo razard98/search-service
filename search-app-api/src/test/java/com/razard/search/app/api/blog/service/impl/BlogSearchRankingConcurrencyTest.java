@@ -28,13 +28,13 @@ public class BlogSearchRankingConcurrencyTest {
     @Test
     void test_blog_search_count_increment_concurrency() throws InterruptedException {
         //given
-        int concurrency = 100;
+        int taskCount = 100;
         String query = "스프링";
         ExecutorService executorService = Executors.newFixedThreadPool(10);
-        CountDownLatch countDownLatch = new CountDownLatch(concurrency);
+        CountDownLatch countDownLatch = new CountDownLatch(taskCount);
 
         //when
-        for (int i = 0; i < concurrency; i++) {
+        for (int i = 0; i < taskCount; i++) {
             executorService.execute(() -> {
                 blogSearchRankingService.incrementBlogSearchScore(query);
                 countDownLatch.countDown();
@@ -46,7 +46,7 @@ public class BlogSearchRankingConcurrencyTest {
         BlogDto.RankingResponse rankingResponse = blogSearchRanking.get(0);
 
         //then
-        assertThat(rankingResponse.getCount()).isEqualTo(concurrency);
+        assertThat(rankingResponse.getCount()).isEqualTo(taskCount);
         assertThat(rankingResponse.getKeyword()).isEqualTo(query);
     }
 }

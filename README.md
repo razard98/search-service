@@ -91,7 +91,7 @@ java -jar search-app-api-1.0.jar
 #### Http request
 
 ```http request
-GET /api/search/v1/blogs?query=%EC%8A%A4%ED%94%84%EB%A7%81&page=1&size=10&sort=accuracy HTTP/1.1
+GET /api/v1/search/blog?query=%EC%8A%A4%ED%94%84%EB%A7%81&page=1&size=10&sort=accuracy HTTP/1.1
 Accept: application/json
 Host: localhost:8080
 ```
@@ -161,7 +161,7 @@ Content-Length: 851
 #### Http request
 
 ```http request
-GET /api/search/v1/rankings HTTP/1.1
+GET /api/v1/search/blog/rankings HTTP/1.1
 Accept: application/json
 Host: localhost:8080
 ```
@@ -190,7 +190,7 @@ Content-Length: 89
 #### Http request
 
 ```http request
-GET /api/search/v1/logs?page=1&size=10 HTTP/1.1
+GET /api/v1/search/blog/logs?page=1&size=10 HTTP/1.1
 Accept: application/json
 Host: localhost:8080
 ```

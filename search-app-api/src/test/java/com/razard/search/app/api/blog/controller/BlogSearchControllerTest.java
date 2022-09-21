@@ -1,11 +1,11 @@
 package com.razard.search.app.api.blog.controller;
 
-import com.razard.search.domain.blog.BlogSearchLog;
 import com.razard.search.app.api.blog.dto.BlogDto;
 import com.razard.search.app.api.blog.dto.BlogSearchLogDto;
 import com.razard.search.app.api.blog.service.BlogSearchLogService;
 import com.razard.search.app.api.blog.service.BlogSearchRankingService;
 import com.razard.search.app.api.blog.service.BlogSearchService;
+import com.razard.search.domain.blog.BlogSearchLog;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -70,7 +70,7 @@ class BlogSearchControllerTest {
         given(blogSearchService.searchBlogs(request)).willReturn(result);
 
         //when-then
-        mockMvc.perform(RestDocumentationRequestBuilders.get("/api/search/v1/blogs")
+        mockMvc.perform(RestDocumentationRequestBuilders.get("/api/v1/search/blog")
                 .param("query", request.getQuery())
                 .param("page", request.getPage().toString())
                 .param("size", request.getSize().toString())
@@ -101,7 +101,7 @@ class BlogSearchControllerTest {
         given(blogSearchRankingService.getBlogSearchRanking()).willReturn(results);
 
         //when-then
-        mockMvc.perform(RestDocumentationRequestBuilders.get("/api/search/v1/rankings")
+        mockMvc.perform(RestDocumentationRequestBuilders.get("/api/v1/search/blog/rankings")
                 .accept(MediaType.APPLICATION_JSON))
                 .andDo(MockMvcResultHandlers.print())
                 .andExpect(MockMvcResultMatchers.status().isOk())
@@ -131,7 +131,7 @@ class BlogSearchControllerTest {
         given(blogSearchLogService.getBlogSearchLogs(page, size)).willReturn(result);
 
         //when-then
-        mockMvc.perform(RestDocumentationRequestBuilders.get("/api/search/v1/logs")
+        mockMvc.perform(RestDocumentationRequestBuilders.get("/api/v1/search/blog/logs")
                 .param("page", String.valueOf(page))
                 .param("size", String.valueOf(size))
                 .accept(MediaType.APPLICATION_JSON))

@@ -7,6 +7,8 @@ import com.razard.search.app.api.blog.dto.NaverBlogsDto;
 import com.razard.search.app.api.blog.repository.KakaoApiRepository;
 import com.razard.search.app.api.blog.repository.NaverApiRepository;
 import com.razard.search.app.api.blog.service.BlogSearchRankingService;
+import com.razard.search.app.api.blog.service.BlogSearchService;
+import com.razard.search.app.api.config.EmbeddedRedisConfig;
 import io.github.resilience4j.circuitbreaker.CircuitBreaker;
 import io.github.resilience4j.circuitbreaker.CircuitBreakerRegistry;
 import io.vavr.collection.Stream;
@@ -14,6 +16,7 @@ import okhttp3.ResponseBody;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.data.domain.Page;
@@ -32,10 +35,13 @@ import static org.mockito.Mockito.*;
 public class BlogSearchCircuitBreakerTest {
 
     @Autowired
-    protected CircuitBreakerRegistry circuitBreakerRegistry;
+    private BlogSearchService blogSearchService;
 
     @Autowired
-    private BlogSearchServiceImpl blogSearchService;
+    protected CircuitBreakerRegistry circuitBreakerRegistry;
+
+    @MockBean
+    EmbeddedRedisConfig embeddedRedisConfig;
 
     @MockBean
     private BlogSearchRankingService blogSearchRankingService;
@@ -71,7 +77,7 @@ public class BlogSearchCircuitBreakerTest {
 
         //when
         Stream.range(0, 4).forEach(c -> blogSearchService.searchBlogs(request));
-        CircuitBreaker circuitBreaker = circuitBreakerRegistry.circuitBreaker("search-source");
+        CircuitBreaker circuitBreaker = circuitBreakerRegistry.circuitBreaker(BlogSearchServiceImpl.CB_SEARCH_SOURCE_REPOSITORY);
         Page<BlogDto.SearchResponse> result = blogSearchService.searchBlogs(request);
 
         //then
@@ -81,5 +87,4 @@ public class BlogSearchCircuitBreakerTest {
         verify(naverApiRepository, times(5)).searchBlogs(anyString(), anyString(), anyInt(), anyInt());
         verify(blogSearchRankingService, times(5)).incrementBlogSearchScore(anyString());
     }
-
 }

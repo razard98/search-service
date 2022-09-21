@@ -1,6 +1,5 @@
 package com.razard.search.app.api.blog.service.impl;
 
-import com.razard.search.domain.blog.BlogSearchLog;
 import com.razard.search.app.api.blog.dto.BlogDto;
 import com.razard.search.app.api.blog.dto.KakaoBlogsDto;
 import com.razard.search.app.api.blog.dto.NaverBlogsDto;
@@ -9,6 +8,7 @@ import com.razard.search.app.api.blog.repository.NaverApiRepository;
 import com.razard.search.app.api.blog.service.BlogSearchLogService;
 import com.razard.search.app.api.blog.service.BlogSearchRankingService;
 import com.razard.search.app.api.blog.service.BlogSearchService;
+import com.razard.search.domain.blog.BlogSearchLog;
 import io.github.resilience4j.circuitbreaker.annotation.CircuitBreaker;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -30,6 +30,7 @@ import java.util.stream.Collectors;
 @RequiredArgsConstructor
 public class BlogSearchServiceImpl implements BlogSearchService {
 
+    public final static String CB_SEARCH_SOURCE_REPOSITORY = "search-source";
     private final static String SORT_ACCURACY = "accuracy";
     private final KakaoApiRepository kakaoApiRepository;
     private final NaverApiRepository naverApiRepository;
@@ -37,7 +38,7 @@ public class BlogSearchServiceImpl implements BlogSearchService {
     private final BlogSearchLogService blogSearchLogService;
 
     @Override
-    @CircuitBreaker(name = "search-source", fallbackMethod = "searchBlogsFallback")
+    @CircuitBreaker(name = CB_SEARCH_SOURCE_REPOSITORY, fallbackMethod = "searchBlogsFallback")
     public Page<BlogDto.SearchResponse> searchBlogs(final BlogDto.SearchRequest request) {
 
         log.debug("Call kakao api");

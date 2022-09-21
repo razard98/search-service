@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.*;
 import javax.validation.constraints.NotBlank;
 import java.util.List;
 
-@RequestMapping("/api/search/v1")
+@RequestMapping("/api/v1/search")
 @RestController
 @Validated
 @RequiredArgsConstructor
@@ -24,8 +24,8 @@ public class BlogSearchController {
     private final BlogSearchService blogSearchService;
     private final BlogSearchLogService blogSearchLogService;
     private final BlogSearchRankingService blogSearchRankingService;
-    
-    @GetMapping("/blogs")
+
+    @GetMapping("/blog")
     @ResponseBody
     public ResponseEntity<Page<BlogDto.SearchResponse>> searchBlogs(
             @RequestParam("query") @NotBlank(message = "검색어는 필수 입니다.") String query,
@@ -38,14 +38,14 @@ public class BlogSearchController {
         return new ResponseEntity<>(blogSearchService.searchBlogs(request), HttpStatus.OK);
     }
 
-    @GetMapping("/rankings")
+    @GetMapping("/blog/rankings")
     @ResponseBody
     public ResponseEntity<List<BlogDto.RankingResponse>> getBlogSearchRanking() {
 
         return new ResponseEntity<>(blogSearchRankingService.getBlogSearchRanking(), HttpStatus.OK);
     }
 
-    @GetMapping("/logs")
+    @GetMapping("/blog/logs")
     public ResponseEntity<Page<BlogSearchLogDto>> getBlogSearchLog(
             @RequestParam(value = "page", defaultValue = "1") Integer page,
             @RequestParam(value = "size", defaultValue = "10") Integer size) {
