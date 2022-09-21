@@ -26,7 +26,7 @@ public class BlogSearchRankingConcurrencyTest {
 
     @DisplayName("검색어 조회수 증가 동시성 테스트")
     @Test
-    void testConcurrency() throws InterruptedException {
+    void test_blog_search_count_increment_concurrency() throws InterruptedException {
         //given
         int concurrency = 100;
         String query = "스프링";
