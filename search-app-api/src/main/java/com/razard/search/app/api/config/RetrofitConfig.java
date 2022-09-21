@@ -38,7 +38,7 @@ public class RetrofitConfig {
         return new OkHttpClient.Builder()
                 .connectTimeout(3, TimeUnit.SECONDS)
                 .readTimeout(10, TimeUnit.SECONDS)
-                //.addInterceptor(loggingInterceptor)
+                .addInterceptor(loggingInterceptor)
                 .addInterceptor(kakaoHttpInterceptor)
                 .build();
     }
@@ -51,7 +51,7 @@ public class RetrofitConfig {
         return new OkHttpClient.Builder()
                 .connectTimeout(3, TimeUnit.SECONDS)
                 .readTimeout(10, TimeUnit.SECONDS)
-                //.addInterceptor(loggingInterceptor)
+                .addInterceptor(loggingInterceptor)
                 .addInterceptor(naverHttpInterceptor)
                 .build();
     }

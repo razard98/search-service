@@ -17,5 +17,4 @@ public class BlogSearchLogDto {
     
     private String source;
 
-
 }

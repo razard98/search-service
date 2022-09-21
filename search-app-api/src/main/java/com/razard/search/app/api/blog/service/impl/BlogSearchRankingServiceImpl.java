@@ -33,6 +33,7 @@ public class BlogSearchRankingServiceImpl implements BlogSearchRankingService {
 
     @Override
     public List<BlogDto.RankingResponse> getBlogSearchRanking() {
+
         Set<ZSetOperations.TypedTuple<String>> rankingSet = zSetOperations.reverseRangeWithScores(searchRedisKey, 0, 9);
         if (ObjectUtils.isEmpty(rankingSet)) {
             return Collections.emptyList();

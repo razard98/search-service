@@ -41,7 +41,7 @@ public class BlogSearchServiceImpl implements BlogSearchService {
     @CircuitBreaker(name = CB_SEARCH_SOURCE_REPOSITORY, fallbackMethod = "searchBlogsFallback")
     public Page<BlogDto.SearchResponse> searchBlogs(final BlogDto.SearchRequest request) {
 
-        log.debug("Call kakao api");
+        log.debug("================= Call kakao api");
         Response<KakaoBlogsDto> result;
         Pageable pageable = PageRequest.of(request.getPage() - 1, request.getSize());
 
@@ -80,7 +80,7 @@ public class BlogSearchServiceImpl implements BlogSearchService {
 
     private Page<BlogDto.SearchResponse> searchBlogsFallback(final BlogDto.SearchRequest request, Throwable t) {
 
-        log.debug("=============[CircuitBreaker Open] Call Naver api");
+        log.debug("================= Call Naver api");
         Response<NaverBlogsDto> result;
         Pageable pageable = PageRequest.of(request.getPage() - 1, request.getSize());
         int start = (request.getPage() - 1) * request.getPage() + 1;

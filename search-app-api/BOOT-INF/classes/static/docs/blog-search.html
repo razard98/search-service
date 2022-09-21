@@ -521,7 +521,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <h3 id="_http_request">Http request</h3>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight nowrap"><code class="language-http" data-lang="http">GET /api/search/v1/blogs?query=%EC%8A%A4%ED%94%84%EB%A7%81&amp;page=1&amp;size=10&amp;sort=accuracy HTTP/1.1
+<pre class="highlight nowrap"><code class="language-http" data-lang="http">GET /api/v1/search/blog?query=%EC%8A%A4%ED%94%84%EB%A7%81&amp;page=1&amp;size=10&amp;sort=accuracy HTTP/1.1
 Accept: application/json
 Host: localhost:8080</code></pre>
 </div>
@@ -565,7 +565,7 @@ Host: localhost:8080</code></pre>
 Content-Type: application/json
 Content-Length: 851
 
-{"content":[{"title":"스프링1","contents":null,"url":null,"blogname":"블로그1","thumbnail":null,"datetime":null},{"title":"스프링2","contents":null,"url":null,"blogname":"블로그2","thumbnail":null,"datetime":null},{"title":"스프링3","contents":null,"url":null,"blogname":"블로그3","thumbnail":null,"datetime":null},{"title":"스프링4","contents":null,"url":null,"blogname":"블로그4","thumbnail":null,"datetime":null},{"title":"스프링5","contents":null,"url":null,"blogname":"블로그5","thumbnail":null,"datetime":null}],"pageable":{"sort":{"empty":true,"sorted":false,"unsorted":true},"offset":0,"pageNumber":0,"pageSize":10,"paged":true,"unpaged":false},"totalPages":1,"last":true,"totalElements":10,"size":10,"number":0,"sort":{"empty":true,"sorted":false,"unsorted":true},"first":true,"numberOfElements":5,"empty":false}</code></pre>
+{"content":[{"title":"스프링1","contents":null,"url":null,"blogname":"블로그1","thumbnail":null,"datetime":null},{"title":"스프링2","contents":null,"url":null,"blogname":"블로그2","thumbnail":null,"datetime":null},{"title":"스프링3","contents":null,"url":null,"blogname":"블로그3","thumbnail":null,"datetime":null},{"title":"스프링4","contents":null,"url":null,"blogname":"블로그4","thumbnail":null,"datetime":null},{"title":"스프링5","contents":null,"url":null,"blogname":"블로그5","thumbnail":null,"datetime":null}],"pageable":{"sort":{"empty":true,"sorted":false,"unsorted":true},"offset":0,"pageSize":10,"pageNumber":0,"paged":true,"unpaged":false},"last":true,"totalPages":1,"totalElements":10,"size":10,"number":0,"sort":{"empty":true,"sorted":false,"unsorted":true},"first":true,"numberOfElements":5,"empty":false}</code></pre>
 </div>
 </div>
 <div class="sect3">
@@ -615,7 +615,7 @@ Content-Length: 851
 <h3 id="_http_request_2">Http request</h3>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight nowrap"><code class="language-http" data-lang="http">GET /api/search/v1/rankings HTTP/1.1
+<pre class="highlight nowrap"><code class="language-http" data-lang="http">GET /api/v1/search/blog/rankings HTTP/1.1
 Accept: application/json
 Host: localhost:8080</code></pre>
 </div>
@@ -679,7 +679,7 @@ Content-Length: 89
 <h3 id="_http_request_3">Http request</h3>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight nowrap"><code class="language-http" data-lang="http">GET /api/search/v1/logs?page=1&amp;size=10 HTTP/1.1
+<pre class="highlight nowrap"><code class="language-http" data-lang="http">GET /api/v1/search/blog/logs?page=1&amp;size=10 HTTP/1.1
 Accept: application/json
 Host: localhost:8080</code></pre>
 </div>
@@ -715,7 +715,7 @@ Host: localhost:8080</code></pre>
 Content-Type: application/json
 Content-Length: 405
 
-{"content":[{"id":1,"query":"스프링","searchTime":"2022-09-20T18:03:52.5451142","source":"KAKAO"}],"pageable":{"sort":{"empty":true,"sorted":false,"unsorted":true},"offset":0,"pageNumber":0,"pageSize":10,"paged":true,"unpaged":false},"totalPages":1,"last":true,"totalElements":10,"size":10,"number":0,"sort":{"empty":true,"sorted":false,"unsorted":true},"first":true,"numberOfElements":1,"empty":false}</code></pre>
+{"content":[{"id":1,"query":"스프링","searchTime":"2022-09-21T13:29:59.7895526","source":"KAKAO"}],"pageable":{"sort":{"empty":true,"sorted":false,"unsorted":true},"offset":0,"pageSize":10,"pageNumber":0,"paged":true,"unpaged":false},"last":true,"totalPages":1,"totalElements":10,"size":10,"number":0,"sort":{"empty":true,"sorted":false,"unsorted":true},"first":true,"numberOfElements":1,"empty":false}</code></pre>
 </div>
 </div>
 <div class="sect3">
