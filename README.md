@@ -48,6 +48,14 @@
 
 <hr>
 
+### 실행 파일 다운로드
+
+```
+https://github.com/razard98/search-service/blob/master/search-app-api-1.0.jar
+```
+
+<hr>
+
 ### 실행
 ```
 java -jar search-app-api-1.0.jar
